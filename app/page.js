@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main style={{
-      backgroundColor: "#000",
+      background: "radial-gradient(circle at top, #0a0f1f, #000)",
       color: "#fff",
       height: "100vh",
       display: "flex",
@@ -9,38 +9,65 @@ export default function Home() {
       justifyContent: "center",
       alignItems: "center",
       fontFamily: "Arial, sans-serif",
-      textAlign: "center"
+      textAlign: "center",
+      overflow: "hidden"
     }}>
-      
-      <h1 style={{
-        fontSize: "60px",
-        background: "linear-gradient(90deg, #00f0ff, #0077ff)",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent"
-      }}>
-        ZoopClaw
-      </h1>
 
-      <p style={{
-        marginTop: "10px",
-        fontSize: "18px",
-        opacity: 0.7
-      }}>
-        Execução na velocidade de Planck ⚡
-      </p>
+      {/* Glow effect */}
+      <div style={{
+        position: "absolute",
+        width: "400px",
+        height: "400px",
+        background: "radial-gradient(circle, #0077ff55, transparent)",
+        filter: "blur(100px)",
+        top: "20%",
+        zIndex: 0
+      }} />
 
-      <button style={{
-        marginTop: "30px",
-        padding: "12px 24px",
-        background: "#0077ff",
-        border: "none",
-        borderRadius: "8px",
-        color: "#fff",
-        fontSize: "16px",
-        cursor: "pointer"
-      }}>
-        Testar IA
-      </button>
+      <div style={{ zIndex: 1 }}>
+
+        <h1 style={{
+          fontSize: "64px",
+          fontWeight: "bold",
+          background: "linear-gradient(90deg, #00f0ff, #0077ff)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          marginBottom: "10px"
+        }}>
+          ZoopClaw
+        </h1>
+
+        <p style={{
+          fontSize: "18px",
+          opacity: 0.7,
+          marginBottom: "30px"
+        }}>
+          Execução na velocidade de Planck ⚡
+        </p>
+
+        <button style={{
+          padding: "14px 28px",
+          background: "linear-gradient(90deg, #0077ff, #00f0ff)",
+          border: "none",
+          borderRadius: "10px",
+          color: "#fff",
+          fontSize: "16px",
+          fontWeight: "bold",
+          cursor: "pointer",
+          boxShadow: "0 0 20px #0077ff88",
+          transition: "0.3s"
+        }}
+        onMouseOver={(e) => {
+          e.target.style.boxShadow = "0 0 30px #00f0ff"
+        }}
+        onMouseOut={(e) => {
+          e.target.style.boxShadow = "0 0 20px #0077ff88"
+        }}
+        >
+          Testar IA 🚀
+        </button>
+
+      </div>
 
     </main>
   )
