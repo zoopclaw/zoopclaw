@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+
 export default function Home() {
   return (
     <main style={{
@@ -15,7 +17,7 @@ export default function Home() {
       overflow: "hidden"
     }}>
 
-      {/* Glow effect */}
+      {/* Glow */}
       <div style={{
         position: "absolute",
         width: "400px",
@@ -47,7 +49,7 @@ export default function Home() {
           Execução na velocidade de Planck ⚡
         </p>
 
-        <a href="/chat">
+        <Link href="/chat">
           <button style={{
             padding: "14px 28px",
             background: "linear-gradient(90deg, #0077ff, #00f0ff)",
@@ -69,7 +71,7 @@ export default function Home() {
           >
             Testar IA 🚀
           </button>
-        </a>
+        </Link>
 
       </div>
 
