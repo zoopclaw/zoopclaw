@@ -1,4 +1,5 @@
 "use client"
+
 export default function Home() {
   return (
     <main style={{
@@ -14,7 +15,6 @@ export default function Home() {
       overflow: "hidden"
     }}>
 
-      {/* Glow effect */}
       <div style={{
         position: "absolute",
         width: "400px",
