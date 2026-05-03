@@ -1,78 +1,74 @@
 "use client"
 
-import Link from "next/link"
+import { useState } from "react"
 
-export default function Home() {
+export default function Chat() {
+  const [message, setMessage] = useState("")
+  const [response, setResponse] = useState("")
+
+  function sendMessage() {
+    setResponse("⚡ ZoopClaw pensando...")
+
+    setTimeout(() => {
+      setResponse("🤖 Resposta da IA aparecerá aqui em breve!")
+    }, 1200)
+  }
+
   return (
     <main style={{
-      background: "radial-gradient(circle at top, #0a0f1f, #000)",
+      background: "#000",
       color: "#fff",
-      height: "100vh",
+      minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "center",
       alignItems: "center",
-      fontFamily: "Arial, sans-serif",
-      textAlign: "center",
-      overflow: "hidden"
+      justifyContent: "center",
+      padding: "20px",
+      fontFamily: "Arial"
     }}>
 
-      {/* Glow */}
-      <div style={{
-        position: "absolute",
-        width: "400px",
-        height: "400px",
-        background: "radial-gradient(circle, #0077ff55, transparent)",
-        filter: "blur(100px)",
-        top: "20%",
-        zIndex: 0
-      }} />
+      <h1 style={{ marginBottom: "20px", fontSize: "32px" }}>
+        ZoopClaw AI 🚀
+      </h1>
 
-      <div style={{ zIndex: 1 }}>
+      <textarea
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        placeholder="Digite sua pergunta..."
+        style={{
+          width: "100%",
+          maxWidth: "500px",
+          height: "120px",
+          padding: "10px",
+          borderRadius: "10px",
+          marginBottom: "15px",
+          border: "none",
+          outline: "none"
+        }}
+      />
 
-        <h1 style={{
-          fontSize: "64px",
-          fontWeight: "bold",
+      <button
+        onClick={sendMessage}
+        style={{
+          padding: "12px 25px",
           background: "linear-gradient(90deg, #00f0ff, #0077ff)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          marginBottom: "10px"
-        }}>
-          ZoopClaw
-        </h1>
+          border: "none",
+          borderRadius: "10px",
+          color: "#fff",
+          cursor: "pointer",
+          fontSize: "16px"
+        }}
+      >
+        Enviar
+      </button>
 
-        <p style={{
-          fontSize: "18px",
-          opacity: 0.7,
-          marginBottom: "30px"
-        }}>
-          Execução na velocidade de Planck ⚡
-        </p>
-
-        <Link href="/chat">
-          <button style={{
-            padding: "14px 28px",
-            background: "linear-gradient(90deg, #0077ff, #00f0ff)",
-            border: "none",
-            borderRadius: "10px",
-            color: "#fff",
-            fontSize: "16px",
-            fontWeight: "bold",
-            cursor: "pointer",
-            boxShadow: "0 0 20px #0077ff88",
-            transition: "0.3s"
-          }}
-          onMouseOver={(e) => {
-            e.target.style.boxShadow = "0 0 30px #00f0ff"
-          }}
-          onMouseOut={(e) => {
-            e.target.style.boxShadow = "0 0 20px #0077ff88"
-          }}
-          >
-            Testar IA 🚀
-          </button>
-        </Link>
-
+      <div style={{
+        marginTop: "25px",
+        maxWidth: "500px",
+        textAlign: "center",
+        color: "#aaa"
+      }}>
+        {response}
       </div>
 
     </main>
